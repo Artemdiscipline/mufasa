@@ -47,10 +47,11 @@
 /* ===== TOKENS ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#0E0E0E; --ink-2:#161616; --line:#262624; --mute:#8C8C86; --bone:#F4F2ED;
+  --ink:#0E0E0E; --ink-2:#161616; --line:rgba(255,255,255,.10); --mute:#93938F; --bone:#ECECEA;
   --moss:#46A83E; --moss-light:#8FD37B; --moss-deep:#13271A; --moss-ink:#2F7D2A;
   --wood:#C0894A; --wood-deep:#8A5E30;
   --line-light:#E3DFD5; --ink-soft:#5A594F;
+  --r:12px; --r-sm:8px; --pill:999px; --ease:cubic-bezier(.22,.75,.28,1);
   --pad:clamp(18px,5vw,72px); --max:1240px; --sec:clamp(72px,10vh,132px);
   --hdr:64px;
 }
@@ -231,6 +232,17 @@ h1,h2,h3,h4{font-family:"Oswald",sans-serif;font-weight:500;text-transform:upper
 .sticky a{text-align:center;padding:16px 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
 .sticky a:first-child{background:var(--moss);color:var(--ink)}
 .sticky a:last-child{border-left:1px solid var(--line)}
+
+/* ===== Полировка под street52: мягкие радиусы, кинематографичные детали ===== */
+.btn{border-radius:var(--pill);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.btn--ghost{border-color:rgba(255,255,255,.22)}
+.hero__rating{border-radius:var(--pill)}
+.hero__title{font-size:clamp(50px,9.6vw,132px);letter-spacing:.004em}
+.about__photo,.fs__photo,.gal__item,.master__photo,.rev__card,.map,.stats{border-radius:var(--r)}
+.stats{overflow:hidden}
+.rev__badge{border-radius:var(--pill)}
+.label{letter-spacing:.28em}
+.marquee{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 
 /* ===== ADAPTIVE ===== */
 @media(max-width:900px){
