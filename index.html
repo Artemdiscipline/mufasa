@@ -54,7 +54,7 @@
   --pad:clamp(18px,5vw,72px); --max:1240px; --sec:clamp(72px,10vh,132px);
   --hdr:64px;
 }
-html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 12px)}
 body{background:var(--ink);color:var(--bone);font-family:"Golos Text",system-ui,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
@@ -220,7 +220,7 @@ h1,h2,h3,h4{font-family:"Oswald",sans-serif;font-weight:500;text-transform:upper
 .footer{border-top:1px solid var(--line);padding:clamp(48px,7vh,80px) 0 calc(28px + env(safe-area-inset-bottom))}
 .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
 .footer__logo{width:34px;height:34px;object-fit:contain;filter:invert(1);mix-blend-mode:screen;margin-bottom:14px}
-.footer h4{font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-bottom:14px}
+.footer h3{font-family:"Golos Text";font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-bottom:14px}
 .footer a{display:block;font-size:15px;margin-bottom:9px}
 .footer__copy{margin-top:44px;font-size:13px;color:var(--mute)}
 
@@ -576,14 +576,14 @@ html.anim .line{overflow:hidden;display:block}
         <p class="mute" style="font-size:14px;margin-top:12px;max-width:34ch">Барбершоп на Декабристов. Мужская стрижка, борода, отец и сын.</p>
       </div>
       <div>
-        <h4>Меню</h4>
+        <h3>Меню</h3>
         <a class="ul" href="#about">О нас</a>
         <a class="ul" href="#price">Цены</a>
         <a class="ul" href="#masters">Мастера</a>
         <a class="ul" href="#contacts">Контакты</a>
       </div>
       <div>
-        <h4>Связь</h4>
+        <h3>Связь</h3>
         <a class="ul" href="tel:+79395050160">+7 939 505-01-60</a>
         <a class="ul" href="https://wa.me/79395050160" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a class="ul" href="https://t.me/mufassakzn" target="_blank" rel="noopener noreferrer">Telegram</a>
