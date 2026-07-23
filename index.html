@@ -244,6 +244,58 @@ h1,h2,h3,h4{font-family:"Oswald",sans-serif;font-weight:500;text-transform:upper
 .label{letter-spacing:.28em}
 .marquee{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 
+/* ===== ИКОНКИ ===== */
+.ico{width:1.05em;height:1.05em;display:inline-block;vertical-align:-.16em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.ico--fill{fill:currentColor;stroke:none}
+.ico--razor{stroke-width:4.5}
+
+/* ===== ГРЕЙН + ФОН (уходим от плоского) ===== */
+body{background:
+  radial-gradient(120% 75% at 50% -8%,#171716 0%,var(--ink) 55%) fixed}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Тёплое дерево + зелёное свечение поверх фото героя */
+.hero__bg::after{background:
+  radial-gradient(70% 55% at 82% 16%,rgba(70,168,62,.16),transparent 60%),
+  radial-gradient(60% 50% at 6% 96%,rgba(192,137,74,.20),transparent 60%),
+  linear-gradient(180deg,rgba(14,14,14,.32) 0%,rgba(14,14,14,.55) 45%,rgba(14,14,14,.95) 100%)}
+
+/* Дерево+зелень в тёмно-зелёных секциях — глубина */
+.fs{background:
+  radial-gradient(55% 70% at 12% 16%,rgba(192,137,74,.14),transparent 60%),
+  radial-gradient(50% 65% at 92% 92%,rgba(70,168,62,.12),transparent 60%),
+  var(--moss-deep)}
+.rev{background:
+  radial-gradient(50% 60% at 88% 12%,rgba(192,137,74,.13),transparent 60%),
+  radial-gradient(45% 60% at 8% 95%,rgba(70,168,62,.10),transparent 60%),
+  var(--moss-deep)}
+
+/* ===== НУМЕРАЦИЯ СЕКЦИЙ (редакторский приём) ===== */
+main{counter-reset:sec}
+.section{counter-increment:sec}
+.eyebrow{display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:counter(sec,decimal-leading-zero);font-family:"Oswald";font-weight:600;font-size:15px;letter-spacing:0;color:var(--wood)}
+.eyebrow::after{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--wood),transparent)}
+.section--light .eyebrow::before{color:var(--wood-deep)}
+.section--light .eyebrow::after{background:linear-gradient(90deg,var(--wood-deep),transparent)}
+
+/* Иконки в прайсе и контактах */
+.price__gt{display:flex;align-items:center;gap:12px}
+.price__gt .ico{color:var(--moss-light);font-size:22px}
+.section--light .price__gt .ico{color:var(--moss-ink)}
+.contacts__row{display:flex;align-items:center;gap:12px}
+.contacts__row .ico{color:var(--moss-light);font-size:19px}
+.fs__note .ico{color:var(--moss-light);font-size:19px;margin-right:6px}
+.hero__rating .ico{color:var(--moss-light);font-size:15px}
+.btn .ico{font-size:17px}
+.marquee__track .ico{color:var(--moss);font-size:20px;margin:0 22px}
+
+/* Ховер-зум для галереи (современный приём) */
+.gal__item{position:relative}
+.gal__item .ph,.gal__item img{transition:transform .5s var(--ease)}
+.gal__item:hover .ph,.gal__item:hover img{transform:scale(1.05)}
+
 /* ===== ADAPTIVE ===== */
 @media(max-width:900px){
   .nav,.hdr__phone{display:none}
@@ -293,6 +345,22 @@ html.anim .line{overflow:hidden;display:block}
  if(!rm) h.classList.add('anim');}());
 </script>
 
+<!-- ===== SVG-спрайт иконок ===== -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="i-razor" viewBox="0 0 64 64"><path d="M8 40 40 16l8-3 8 1-5 6-7 3-30 22z"/><path d="M14 44l-4 8 6-2 4-6"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></symbol>
+  <symbol id="i-beard" viewBox="0 0 24 24"><path d="M4 5c0 6 3.6 11 8 11s8-5 8-11"/><path d="M4 5c2.5 2 5 3 8 3s5.5-1 8-3"/><path d="M9 12c.8 1 1.9 1.5 3 1.5s2.2-.5 3-1.5"/></symbol>
+  <symbol id="i-combo" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/></symbol>
+  <symbol id="i-gamepad" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="4.5"/><line x1="7" y1="12.5" x2="10" y2="12.5"/><line x1="8.5" y1="11" x2="8.5" y2="14"/><circle cx="15.5" cy="11.5" r=".9" fill="currentColor" stroke="none"/><circle cx="18" cy="13.5" r=".9" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.24.66-1.37 1.26-1.9 1.3-.5.05-1.14.24-3.83-.8-3.24-1.27-5.3-4.58-5.46-4.8-.16-.2-1.3-1.74-1.3-3.32 0-1.58.83-2.36 1.12-2.68.3-.32.64-.4.85-.4h.61c.2 0 .46-.07.72.55.27.64.9 2.2.98 2.36.08.16.13.35.03.56-.1.2-.16.34-.3.52-.16.18-.33.4-.47.54-.16.16-.32.33-.14.64.18.32.8 1.32 1.72 2.13 1.18 1.05 2.17 1.38 2.48 1.53.3.16.49.13.67-.08.18-.2.77-.9.98-1.2.2-.32.4-.26.68-.16.28.1 1.8.85 2.1 1 .32.16.52.24.6.37.07.14.07.78-.16 1.44Z"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21.9 4.05 18.8 19.4c-.23 1.03-.85 1.28-1.72.8l-4.75-3.5-2.3 2.2c-.25.26-.46.47-.95.47l.34-4.83L18.2 6.6c.38-.34-.08-.53-.6-.2L6.75 13.25l-4.67-1.46c-1.02-.32-1.04-1.02.2-1.5L20.6 2.6c.85-.32 1.6.2 1.3 1.45Z"/></symbol>
+</svg>
+<div class="grain" aria-hidden="true"></div>
+
 <!-- ===== HEADER ===== -->
 <header class="hdr">
   <div class="wrap hdr__in">
@@ -337,7 +405,8 @@ html.anim .line{overflow:hidden;display:block}
     </div>
     <div class="wrap hero__in">
       <div class="hero__rating reveal-up">
-        <span><b>4.9 ★</b></span><span class="mute">· 141 оценка на Яндекс.Картах · Казань</span>
+        <svg class="ico ico--fill"><use href="#i-star"/></svg>
+        <span><b>4.9</b></span><span class="mute">· 141 оценка на Яндекс.Картах · Казань</span>
       </div>
       <h1 class="hero__title" id="hero-h">
         <span class="line"><span>Стрижка,</span></span>
@@ -347,7 +416,7 @@ html.anim .line{overflow:hidden;display:block}
       <p class="hero__sub reveal-up">Барбершоп на Декабристов, 183. Мужская стрижка, оформление бороды, отец и сын. Ежедневно 10:00 — 20:00.</p>
       <div class="hero__cta reveal-up">
         <a class="btn btn--moss" href="https://dikidi.ru/462759" target="_blank" rel="noopener noreferrer">Записаться</a>
-        <a class="btn btn--ghost" href="https://wa.me/79395050160" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+        <a class="btn btn--ghost" href="https://wa.me/79395050160" target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill"><use href="#i-wa"/></svg>Написать в WhatsApp</a>
       </div>
     </div>
   </section>
@@ -355,7 +424,7 @@ html.anim .line{overflow:hidden;display:block}
   <!-- ===== MARQUEE ===== -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track" id="marquee">
-      <span>Мужская стрижка</span><i></i><span>Оформление бороды</span><i></i><span>Стрижка + борода</span><i></i><span>Отец и сын</span><i></i><span>Камуфляж бороды</span><i></i><span>Восковая эпиляция</span><i></i>
+      <span>Мужская стрижка</span><svg class="ico ico--razor"><use href="#i-razor"/></svg><span>Оформление бороды</span><svg class="ico ico--razor"><use href="#i-razor"/></svg><span>Стрижка + борода</span><svg class="ico ico--razor"><use href="#i-razor"/></svg><span>Отец и сын</span><svg class="ico ico--razor"><use href="#i-razor"/></svg><span>Камуфляж бороды</span><svg class="ico ico--razor"><use href="#i-razor"/></svg><span>Восковая эпиляция</span><svg class="ico ico--razor"><use href="#i-razor"/></svg>
     </div>
   </div>
 
@@ -393,7 +462,7 @@ html.anim .line{overflow:hidden;display:block}
       <h2 class="h2 reveal-up" id="price-h">Прайс</h2>
 
       <div class="price__group reveal-up">
-        <div class="price__gt">Стрижки</div>
+        <div class="price__gt"><svg class="ico"><use href="#i-scissors"/></svg>Стрижки</div>
         <div class="price__row">
           <div class="price__name">Мужская стрижка</div>
           <div class="price__desc">Ножницы, машинка, укладка</div>
@@ -402,7 +471,7 @@ html.anim .line{overflow:hidden;display:block}
       </div>
 
       <div class="price__group reveal-up">
-        <div class="price__gt">Борода</div>
+        <div class="price__gt"><svg class="ico"><use href="#i-beard"/></svg>Борода</div>
         <div class="price__row">
           <div class="price__name">Оформление бороды</div>
           <div class="price__desc">Моделирование, горячее полотенце</div>
@@ -421,7 +490,7 @@ html.anim .line{overflow:hidden;display:block}
       </div>
 
       <div class="price__group reveal-up">
-        <div class="price__gt">Комплексы</div>
+        <div class="price__gt"><svg class="ico"><use href="#i-combo"/></svg>Комплексы</div>
         <div class="price__row">
           <div class="price__name">Стрижка + борода</div>
           <div class="price__desc">Полный образ за один визит</div>
@@ -450,10 +519,10 @@ html.anim .line{overflow:hidden;display:block}
           <div class="ph"><span>ОТЕЦ · 3:4</span></div>
         </div>
         <div class="fs__mid">
-          <span class="label reveal-up">Своя секция</span>
+          <span class="label eyebrow reveal-up">Своя секция</span>
           <h2 class="fs__h reveal-up" id="fs-h">Отец и сын</h2>
           <div class="fs__price reveal-up">Две стрижки подряд — 2500 ₽</div>
-          <p class="fs__note reveal-up">Пока стригут вас, сын занят приставкой.</p>
+          <p class="fs__note reveal-up"><svg class="ico"><use href="#i-gamepad"/></svg>Пока стригут вас, сын занят приставкой.</p>
         </div>
         <div class="fs__photo fs__photo--r reveal-img">
           <!-- TODO: заменить (assets/son.webp) -->
@@ -560,13 +629,13 @@ html.anim .line{overflow:hidden;display:block}
       <div class="contacts__grid">
         <div class="reveal-up">
           <div class="contacts__addr">Казань,<br>Декабристов, 183</div>
-          <div class="contacts__row">Отдельный вход с улицы, у двери — барберский столб</div>
-          <div class="contacts__row">Ежедневно 10:00 — 20:00</div>
+          <div class="contacts__row"><svg class="ico"><use href="#i-pin"/></svg>Отдельный вход с улицы, у двери — барберский столб</div>
+          <div class="contacts__row"><svg class="ico"><use href="#i-clock"/></svg>Ежедневно 10:00 — 20:00</div>
           <a class="contacts__phone ul" href="tel:+79395050160">+7 939 505-01-60</a>
           <div class="contacts__btns">
             <a class="btn btn--moss btn--sm" href="https://dikidi.ru/462759" target="_blank" rel="noopener noreferrer">Dikidi</a>
-            <a class="btn btn--ghost btn--sm" href="https://wa.me/79395050160" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a class="btn btn--ghost btn--sm" href="https://t.me/mufassakzn" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a class="btn btn--ghost btn--sm" href="https://wa.me/79395050160" target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill"><use href="#i-wa"/></svg>WhatsApp</a>
+            <a class="btn btn--ghost btn--sm" href="https://t.me/mufassakzn" target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill"><use href="#i-tg"/></svg>Telegram</a>
             <a class="btn btn--ghost btn--sm" href="https://vk.ru/club200861825" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
           </div>
         </div>
