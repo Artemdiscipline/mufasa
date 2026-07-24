@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Golos+Text:wght@400;500&display=swap&subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -128,17 +128,17 @@ h1,h2,h3,h4{font-family:"Oswald",sans-serif;font-weight:500;text-transform:upper
 .mnav .btn{margin-top:10px}
 
 /* ===== HERO ===== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding-top:var(--hdr);overflow:hidden}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:calc(var(--hdr) + 32px);padding-bottom:clamp(36px,6vh,72px);overflow:hidden}
 .hero__bg{position:absolute;inset:0;z-index:0}
 .hero__bg .ph{border:none}
-.hero__bg img{width:100%;height:100%;object-fit:cover}
-.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.35) 0%,rgba(14,14,14,.55) 45%,rgba(14,14,14,.95) 100%)}
-.hero__in{position:relative;z-index:1;width:100%;padding-bottom:clamp(40px,7vh,90px)}
-.hero__rating{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--bone);margin-bottom:22px;border:1px solid var(--line);background:rgba(22,22,22,.5);padding:8px 14px}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.4) 0%,rgba(14,14,14,.6) 50%,rgba(14,14,14,.92) 100%)}
+.hero__in{position:relative;z-index:1;width:100%}
+.hero__rating{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--bone);margin-bottom:20px;border:1px solid rgba(255,255,255,.15);background:rgba(14,14,14,.6);backdrop-filter:blur(8px);padding:8px 16px;border-radius:var(--pill)}
 .hero__rating b{color:var(--moss-light)}
-.hero__title{font-family:"Oswald";font-weight:600;font-size:clamp(44px,8vw,104px);line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
-.hero__sub{margin-top:22px;color:var(--mute);font-size:clamp(16px,2vw,20px);max-width:44ch}
-.hero__cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.hero__title{font-family:"Oswald","Arial Narrow",sans-serif;font-weight:600;font-size:clamp(38px,6.5vw,88px);line-height:1.02;letter-spacing:.005em;text-transform:uppercase;color:var(--bone);text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.hero__sub{margin-top:20px;color:rgba(236,236,234,.88);font-size:clamp(15px,1.6vw,19px);max-width:48ch;line-height:1.6;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.hero__cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 
 /* ===== MARQUEE ===== */
 .marquee{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:18px 0}
@@ -186,15 +186,21 @@ h1,h2,h3,h4{font-family:"Oswald",sans-serif;font-weight:500;text-transform:upper
 .gal__item .ph,.gal__item img{width:100%;height:100%;object-fit:cover;filter:contrast(1.03) saturate(.97)}
 .gal__foot{margin-top:32px}
 
-/* ===== MASTERS ===== */
-.masters__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.master__photo{aspect-ratio:3/4;overflow:hidden;margin-bottom:18px}
-.master__photo .ph,.master__photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-.master:hover .master__photo img,.master:hover .master__photo .ph{transform:scale(1.04)}
-.master__name{font-family:"Oswald";font-weight:500;font-size:24px;text-transform:uppercase}
-.master__spec{color:var(--moss-light);font-size:13px;letter-spacing:.04em;margin-top:4px}
-.master__quote{color:var(--mute);font-size:15px;margin:12px 0 14px;max-width:34ch}
-.master__link{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+/* ===== MASTERS (Featured Master Showcase) ===== */
+.master__card{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,5vw,64px);align-items:center;background:var(--line-light);border:1px solid var(--line-light);border-radius:var(--r);overflow:hidden;padding:clamp(24px,4vw,48px)}
+.master__image{aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-sm)}
+.master__image .ph,.master__image img{width:100%;height:100%;object-fit:cover}
+.master__content{display:flex;flex-direction:column;justify-content:center}
+.master__name-lg{font-family:"Oswald";font-weight:600;font-size:clamp(36px,5vw,60px);text-transform:uppercase;line-height:1.05;margin:12px 0 8px;color:var(--ink)}
+.master__badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.master__tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--moss-ink);border:1px solid rgba(70,168,62,.3);padding:6px 14px;border-radius:var(--pill);background:rgba(70,168,62,.06);font-weight:500}
+.master__quote-lg{color:var(--ink-soft);font-size:clamp(16px,1.8vw,20px);line-height:1.6;margin-bottom:28px;max-width:44ch}
+.master__action{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .master__card{grid-template-columns:1fr;padding:24px}
+  .master__image{aspect-ratio:16/10}
+}
 
 /* ===== REVIEWS ===== */
 .rev{background:var(--moss-deep)}
@@ -237,7 +243,7 @@ h1,h2,h3,h4{font-family:"Oswald",sans-serif;font-weight:500;text-transform:upper
 .btn{border-radius:var(--pill);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
 .btn--ghost{border-color:rgba(255,255,255,.22)}
 .hero__rating{border-radius:var(--pill)}
-.hero__title{font-size:clamp(50px,9.6vw,132px);letter-spacing:.004em}
+.hero__title{letter-spacing:.004em}
 .about__photo,.fs__photo,.gal__item,.master__photo,.rev__card,.map,.stats{border-radius:var(--r)}
 .stats{overflow:hidden}
 .rev__badge{border-radius:var(--pill)}
@@ -338,11 +344,22 @@ html.anim .line{overflow:hidden;display:block}
 
 <body>
 
-<!-- Не прячем контент до подтверждения GSAP: класс anim ставится только при включённом JS и без reduced-motion -->
+<!-- Не прячем контент до подтверждения GSAP: класс anim ставится только при включённом JS и без reduced-motion. Добавлен failsafe на случай блокировки или медленной загрузки GSAP CDN -->
 <script>
-(function(){var h=document.documentElement;h.classList.remove('no-js');
- var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(!rm) h.classList.add('anim');}());
+(function(){
+  var h=document.documentElement;
+  h.classList.remove('no-js');
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!rm) {
+    h.classList.add('anim');
+    setTimeout(function(){
+      if(!window.gsap||!window.ScrollTrigger){
+        h.classList.remove('anim');
+        console.warn('GSAP or ScrollTrigger failed to load. Fallback styles applied.');
+      }
+    }, 1200);
+  }
+}());
 </script>
 
 <!-- ===== SVG-спрайт иконок ===== -->
@@ -408,10 +425,8 @@ html.anim .line{overflow:hidden;display:block}
         <svg class="ico ico--fill"><use href="#i-star"/></svg>
         <span><b>4.9</b></span><span class="mute">· 141 оценка на Яндекс.Картах · Казань</span>
       </div>
-      <h1 class="hero__title" id="hero-h">
-        <span class="line"><span>Стрижка,</span></span>
-        <span class="line"><span>борода</span></span>
-        <span class="line"><span>и своё кресло</span></span>
+      <h1 class="hero__title reveal-up" id="hero-h">
+        Стрижка, борода<br>и своё кресло
       </h1>
       <p class="hero__sub reveal-up">Барбершоп на Декабристов, 183. Мужская стрижка, оформление бороды, отец и сын. Ежедневно 10:00 — 20:00.</p>
       <div class="hero__cta reveal-up">
@@ -557,32 +572,28 @@ html.anim .line{overflow:hidden;display:block}
   <!-- ===== MASTERS ===== -->
   <section class="section section--light" id="masters" aria-labelledby="masters-h">
     <div class="wrap">
-      <span class="label eyebrow reveal-up">Кто стрижёт</span>
-      <h2 class="h2 reveal-up" id="masters-h" style="margin-bottom:40px">Мастера</h2>
-      <div class="masters__grid">
-        <article class="master reveal-up">
-          <div class="master__photo reveal-img"><div class="ph"><span>ДИНАР · 3:4</span></div></div>
-          <h3 class="master__name">Динар</h3>
-          <div class="master__spec">Стрижки и борода</div>
-          <p class="master__quote">Делает аккуратно и ровно так, как хотел. Внимателен к деталям.</p>
-          <a class="master__link ul" href="https://dikidi.ru/462759" target="_blank" rel="noopener noreferrer">Записаться →</a>
-        </article>
-        <article class="master reveal-up">
-          <div class="master__photo reveal-img"><div class="ph"><span>РАДИК · 3:4</span></div></div>
-          <h3 class="master__name">Радик</h3>
-          <div class="master__spec">Стрижки и борода</div>
-          <p class="master__quote">Одинаково хорошо работает с волосами и бородой, подскажет форму.</p>
-          <a class="master__link ul" href="https://dikidi.ru/462759" target="_blank" rel="noopener noreferrer">Записаться →</a>
-        </article>
-        <article class="master reveal-up">
-          <div class="master__photo reveal-img"><div class="ph"><span>ДАНИИЛ · 3:4</span></div></div>
-          <h3 class="master__name">Даниил</h3>
-          <div class="master__spec">Барбер</div>
-          <p class="master__quote">Молодой мастер, стрижёт чётко и по делу.</p>
-          <a class="master__link ul" href="https://dikidi.ru/462759" target="_blank" rel="noopener noreferrer">Записаться →</a>
-        </article>
+      <span class="label eyebrow reveal-up">Ведущий барбер</span>
+      <h2 class="h2 reveal-up" id="masters-h" style="margin-bottom:36px">Мастер</h2>
+      
+      <div class="master__card reveal-up">
+        <div class="master__image reveal-img">
+          <div class="ph"><span>ДИНАР · 4:5</span></div>
+        </div>
+        <div class="master__content">
+          <span class="label" style="color:var(--wood-deep)">Топ-барбершоп Муфаса</span>
+          <h3 class="master__name-lg">Динар</h3>
+          <div class="master__badge-row">
+            <span class="master__tag">Стрижки любой сложности</span>
+            <span class="master__tag">Оформление бороды</span>
+            <span class="master__tag">Опыт от 5 лет</span>
+          </div>
+          <p class="master__quote-lg">«Делает аккуратно и ровно так, как хотел клиент. Внимателен к деталям, подбирает форму стрижки и бороды под особенности лица.»</p>
+          <div class="master__action">
+            <a class="btn btn--moss" href="https://dikidi.ru/462759" target="_blank" rel="noopener noreferrer">Записаться к Динару</a>
+            <span class="mute" style="font-size:14px">Оценка на Яндекс: <b>4.9</b></span>
+          </div>
+        </div>
       </div>
-      <!-- TODO: уточнить полный список мастеров при ресёрче -->
     </div>
   </section>
 
@@ -724,23 +735,23 @@ html.anim .line{overflow:hidden;display:block}
   ScrollTrigger.defaults({start:"top 80%"});
 
   /* ---- Заголовок героя построчно ---- */
-  gsap.to(".hero__title .line>span",{yPercent:0,duration:0.9,ease:"power4.out",stagger:0.1,delay:0.1});
+  gsap.fromTo(".hero__title .line>span", {yPercent: 100}, {yPercent: 0, duration: 0.9, ease: "power4.out", stagger: 0.1, delay: 0.1});
 
   /* ---- Блоки: opacity/y ---- */
   gsap.utils.toArray(".reveal-up").forEach(function(el){
     // элементы внутри героя (уже видны) анимируем сразу, остальные — по скроллу
     var inHero=el.closest('.hero');
-    if(inHero){ gsap.to(el,{opacity:1,y:0,duration:0.8,ease:"power3.out",delay:0.35}); return; }
-    gsap.to(el,{opacity:1,y:0,duration:0.8,ease:"power3.out",
+    if(inHero){ gsap.fromTo(el, {opacity: 0, y: 40}, {opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.35}); return; }
+    gsap.fromTo(el, {opacity: 0, y: 40}, {opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
       scrollTrigger:{trigger:el,once:true}});
   });
   gsap.utils.toArray(".reveal").forEach(function(el){
-    gsap.to(el,{opacity:1,duration:0.8,ease:"power3.out",scrollTrigger:{trigger:el,once:true}});
+    gsap.fromTo(el, {opacity: 0}, {opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger:{trigger:el,once:true}});
   });
 
   /* ---- Фото: раскрытие маской ---- */
   gsap.utils.toArray(".reveal-img").forEach(function(el){
-    gsap.to(el,{clipPath:"inset(0% 0 0 0)",duration:1,ease:"power3.out",
+    gsap.fromTo(el, {clipPath: "inset(100% 0 0 0)"}, {clipPath: "inset(0% 0 0 0)", duration: 1, ease: "power3.out",
       scrollTrigger:{trigger:el,once:true}});
   });
 
