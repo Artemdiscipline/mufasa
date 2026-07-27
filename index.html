@@ -263,9 +263,11 @@ body{background:
 
 /* Тёплое дерево + зелёное свечение поверх фото героя */
 .hero__bg::after{background:
-  radial-gradient(70% 55% at 82% 16%,rgba(70,168,62,.16),transparent 60%),
-  radial-gradient(60% 50% at 6% 96%,rgba(192,137,74,.20),transparent 60%),
-  linear-gradient(180deg,rgba(14,14,14,.32) 0%,rgba(14,14,14,.55) 45%,rgba(14,14,14,.95) 100%)}
+  radial-gradient(70% 55% at 82% 16%,rgba(70,168,62,.14),transparent 60%),
+  radial-gradient(60% 50% at 6% 96%,rgba(192,137,74,.16),transparent 60%),
+  /* затемнение со стороны текста — фото зала светлое, иначе подзаголовок теряется */
+  linear-gradient(90deg,rgba(14,14,14,.88) 0%,rgba(14,14,14,.62) 38%,rgba(14,14,14,.18) 72%,rgba(14,14,14,.05) 100%),
+  linear-gradient(180deg,rgba(14,14,14,.42) 0%,rgba(14,14,14,.5) 45%,rgba(14,14,14,.92) 100%)}
 
 /* Дерево+зелень в тёмно-зелёных секциях — глубина */
 .fs{background:
@@ -417,7 +419,7 @@ html.anim .line{overflow:hidden;display:block}
   <!-- ===== HERO ===== -->
   <section class="hero" aria-labelledby="hero-h">
     <div class="hero__bg" aria-hidden="true">
-      <!-- TODO: заменить на реальное фото зала Муфасы (сейчас временный сток) -->
+      <!-- Реальное фото зала Муфасы (Яндекс.Карты) -->
       <img src="assets/img/hero.webp" alt="" width="1920" height="1200" fetchpriority="high">
     </div>
     <div class="wrap hero__in">
@@ -455,8 +457,8 @@ html.anim .line{overflow:hidden;display:block}
           <p class="reveal-up">К своим мастерам возвращаются годами и приводят сыновей. Для них есть отдельная запись и приставка, пока стригут отца.</p>
         </div>
         <div class="about__photo reveal-img">
-          <!-- TODO: заменить на реальное фото зала (сейчас временный сток) -->
-          <img src="assets/img/about.webp" alt="Зал барбершопа Муфаса: деревянные стены, тёплый свет и зелень" width="800" height="1000" loading="lazy">
+          <!-- Реальное фото: стойка с логотипом-львом, деревом и полосой мха -->
+          <img src="assets/img/about.webp" alt="Стойка в зале Муфасы: дерево, полоса живого мха и логотип со львом" width="800" height="1000" loading="lazy">
         </div>
       </div>
       <div class="stats">
@@ -530,8 +532,8 @@ html.anim .line{overflow:hidden;display:block}
     <div class="wrap">
       <div class="fs__grid">
         <div class="fs__photo fs__photo--l reveal-img">
-          <!-- TODO: заменить на реальное фото (сейчас временный сток) -->
-          <img src="assets/img/father.webp" alt="Взрослый клиент в кресле барбершопа" width="700" height="933" loading="lazy">
+          <!-- Реальное фото работы мастера Муфасы -->
+          <img src="assets/img/father.webp" alt="Взрослый клиент со свежей стрижкой в кресле Муфасы" width="700" height="933" loading="lazy">
         </div>
         <div class="fs__mid">
           <span class="label eyebrow reveal-up">Своя секция</span>
@@ -540,8 +542,8 @@ html.anim .line{overflow:hidden;display:block}
           <p class="fs__note reveal-up"><svg class="ico"><use href="#i-gamepad"/></svg>Пока стригут вас, сын занят приставкой.</p>
         </div>
         <div class="fs__photo fs__photo--r reveal-img">
-          <!-- TODO: заменить на реальное фото (сейчас временный сток) -->
-          <img src="assets/img/son.webp" alt="Мальчик в кресле барбершопа во время стрижки" width="700" height="933" loading="lazy">
+          <!-- Реальное фото: зона ожидания со львом, где сын ждёт своей очереди -->
+          <img src="assets/img/son.webp" alt="Зона ожидания Муфасы: диван, столик и картина со львом" width="700" height="933" loading="lazy">
         </div>
       </div>
     </div>
@@ -553,13 +555,13 @@ html.anim .line{overflow:hidden;display:block}
       <span class="label eyebrow reveal-up">Работы и атмосфера</span>
       <h2 class="h2 reveal-up" id="gal-h" style="margin-bottom:36px">Как это выглядит</h2>
       <div class="gal">
-        <!-- TODO: заменить на реальные фото зала и работ (сейчас временный сток) -->
-        <div class="gal__item reveal-img" data-par="6"><img src="assets/img/g1.webp" alt="Машинка и ножницы мастера на деревянной подставке" width="600" height="800" loading="lazy"></div>
-        <div class="gal__item reveal-img" data-par="-8"><img src="assets/img/g2.webp" alt="Уходовые средства на деревянной полке" width="600" height="800" loading="lazy"></div>
-        <div class="gal__item reveal-img" data-par="4"><img src="assets/img/g3.webp" alt="Мастер за работой в зале барбершопа" width="600" height="800" loading="lazy"></div>
-        <div class="gal__item reveal-img" data-par="-6"><img src="assets/img/g4.webp" alt="Окантовка машинкой крупным планом" width="600" height="800" loading="lazy"></div>
-        <div class="gal__item reveal-img" data-par="8"><img src="assets/img/g5.webp" alt="Клиент в кресле во время работы с бородой" width="600" height="800" loading="lazy"></div>
-        <div class="gal__item reveal-img" data-par="-4"><img src="assets/img/g6.webp" alt="Готовая мужская стрижка после работы мастера" width="600" height="800" loading="lazy"></div>
+        <!-- Реальные фото зала и работ (Яндекс.Карты) -->
+        <div class="gal__item reveal-img" data-par="6"><img src="assets/img/g1.webp" alt="Рабочие места и кресла в зале Муфасы" width="600" height="800" loading="lazy"></div>
+        <div class="gal__item reveal-img" data-par="-8"><img src="assets/img/g2.webp" alt="Зал Муфасы с подсвеченной полосой мха под полками" width="600" height="800" loading="lazy"></div>
+        <div class="gal__item reveal-img" data-par="4"><img src="assets/img/g3.webp" alt="Мужская стрижка с плавным переходом, работа мастера" width="600" height="800" loading="lazy"></div>
+        <div class="gal__item reveal-img" data-par="-6"><img src="assets/img/g4.webp" alt="Стрижка с укладкой и оформленной бородой" width="600" height="800" loading="lazy"></div>
+        <div class="gal__item reveal-img" data-par="8"><img src="assets/img/g5.webp" alt="Короткая мужская стрижка, вид сбоку" width="600" height="800" loading="lazy"></div>
+        <div class="gal__item reveal-img" data-par="-4"><img src="assets/img/g6.webp" alt="Вход в барбершоп Муфаса на Декабристов с вывеской и барберским столбом" width="600" height="800" loading="lazy"></div>
       </div>
       <div class="gal__foot reveal-up">
         <a class="ul" href="https://yandex.ru/maps/org/mufasa/164994045289/gallery/" target="_blank" rel="noopener noreferrer">Ещё фото на Яндекс.Картах →</a>
@@ -577,8 +579,8 @@ html.anim .line{overflow:hidden;display:block}
       
       <div class="master__card reveal-up">
         <div class="master__image reveal-img">
-          <!-- TODO: заменить на фото Динара (сейчас временный сток — кадр работы, без чужого лица) -->
-          <img src="assets/img/master.webp" alt="Работа мастера: оформление окантовки опасной бритвой" width="800" height="1000" loading="lazy">
+          <!-- Реальное фото мастера за работой (Яндекс.Карты). TODO: подтвердить, что на кадре именно Динар -->
+          <img src="assets/img/master.webp" alt="Мастер Муфасы за работой с клиентом у зеркала" width="800" height="1000" loading="lazy">
         </div>
         <div class="master__content">
           <span class="label" style="color:var(--wood-deep)">Барбершоп Муфаса</span>
